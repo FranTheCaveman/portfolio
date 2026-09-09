@@ -1,0 +1,116 @@
+---
+const pathname = new URL(Astro.url).pathname;
+---
+
+<div class="tab-container">
+    <a href="/" class={pathname === "/" ? "selected" : ""}>~/</a>
+    <a href="/projects/" class={pathname === "/projects/" ? "selected" : ""}>~/Projects</a>
+    <a href="/skills/" class={pathname === "/skills/" ? "selected" : ""}>~/Skills</a>
+    <a href="/about/" class={pathname === "/about/" ? "selected" : ""}>~/About Me</a>
+    <a href="/contact/" class={pathname === "/contact/" ? "selected" : ""}>~/Contact</a>
+</div>
+
+<style>
+    .tab-container {
+		position: sticky;
+		width: 80%;
+		display: flex;
+		flex-direction: row;
+		background-color: var(--bg-light);
+		font-family: VeraMono;
+		top: 0;
+		z-index: 1000;
+
+		margin-bottom: 1rem;
+		
+		border-radius: 0 0 25px 25px;
+	}
+
+	/* Left side concave corner */
+	.tab-container::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -25px;
+		width: 25px;
+		height: 25px; 
+		
+		border-top-right-radius: 25px;
+		
+		box-shadow: 10px -10px 0 10px var(--bg-light);
+		z-index: 999;
+		pointer-events: none;
+	}
+
+	/* Right side concave corner */
+	.tab-container::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: -25px;
+		width: 25px;
+		height: 25px;
+		
+		border-top-left-radius: 25px;
+		
+		box-shadow: -10px -10px 0 10px var(--bg-light);
+		z-index: 999;
+		pointer-events: none;
+	}
+
+	.tab-container > a {
+		display: block;
+		padding: 7px 16px 7px 16px;
+		text-align: left;
+		margin: 0.6rem 0 0.6rem 0.6rem;
+		border-radius: 100px;
+		text-decoration: none;
+		color: var(--fg-main);
+		background-color: var(--bg-light);
+		transition: background-color 0.25s ease-out;
+
+		z-index: 1001;
+	}
+
+	.tab-container > a:hover, .tab-container > a.selected {
+		color: var(--bg-dark);
+	}
+
+	.tab-container > a.selected:nth-child(1) {
+		background-color: var(--red1);
+	}
+	.tab-container > a.selected:nth-child(2) {
+		background-color: var(--green1);
+	}
+	.tab-container > a.selected:nth-child(3) {
+		background-color: var(--yellow1);
+	}
+	.tab-container > a.selected:nth-child(4) {
+		background-color: var(--blue1);
+	}
+	.tab-container > a.selected:nth-child(5) {
+		background-color: var(--purple1);
+	}
+	.tab-container > a.selected:nth-child(6) {
+		background-color: var(--teal1);
+	}
+
+	.tab-container > a:hover:nth-child(1) {
+		background-color: var(--red1);
+	}
+	.tab-container > a:hover:nth-child(2) {
+		background-color: var(--green1);
+	}
+	.tab-container > a:hover:nth-child(3) {
+		background-color: var(--yellow1);
+	}
+	.tab-container > a:hover:nth-child(4) {
+		background-color: var(--blue1);
+	}
+	.tab-container > a:hover:nth-child(5) {
+		background-color: var(--purple1);
+	}
+	.tab-container > a:hover:nth-child(6) {
+		background-color: var(--teal1);
+	}
+</style>

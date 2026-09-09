@@ -1,0 +1,117 @@
+<main>
+    <div class="project-header">
+        <h1>Web Development</h1>
+    </div>
+    <div class="project-container">
+        <div class="project">
+            <p class="date">2024</p>
+            <h1>Foodie Buddy</h1>
+            <p class="desc">A mobile app that lets you search for nearby food places with the help of an AI chatbot.</p>
+            <div class="sources">
+                <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/yashsavani19/FoodieBuddy">source</a>
+            </div>
+            <div class="tags">
+                <p>University</p>
+                <p>React Native</p>
+                <p>Javascript/Typescript</p>
+            </div>
+        </div>
+        <div class="project">
+            <p class="date">2025</p>
+            <h1>AUT Research & Development Issue Management System</h1>
+            <p class="desc">A ticket-based Issue Management System web app to identify/organise/resolve issues that come up in projects in the R&D paper for Bachelor of Computer and Information Sciences.</p>
+            <div class="sources">
+                <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/MonicaLuongNZ/issue-management-frontend">frontend</a> 
+                <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/MonicaLuongNZ/issue-management-backend">backend</a>
+            </div>
+            <div class="tags">
+                <p>University</p>
+                <p>Next.js</p>
+                <p>Nest.js</p>
+                <p>Javascript/Typescript</p>
+            </div>
+        </div>
+        <div class="project">
+            <p class="date">2026</p>
+            <h1>Portfolio Website</h1>
+            <p class="desc">Personal portfolio website built with Astro. You're in it right now!</p>
+            <div class="sources">
+                <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/FranTheCaveman/portfolio">source</a> 
+            </div>
+            <div class="tags">
+                <p>Personal</p>
+                <p>Javascript/Typescript</p>
+                <p>Astro</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-header">
+        <h1>Hobby</h1>
+    </div>
+</main>
+ 
+<style>
+    main {
+        font-family: 'veramono';
+        margin: 30px;
+    }
+
+    .sources {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        gap: 0.3rem;
+        color: var(--bg-light);
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .tags > p {
+        background-color: var(--green1);
+        border-radius: 5rem;
+        padding: 5px 10px 5px 10px;
+    }
+
+    .project-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .project-container .date {
+        color: var(--yellow1);
+    }
+
+    .project-container h1 {
+        font-size: 1.2rem;
+        font-family: veramono-bold;
+        color: var(--red1);
+    }
+
+    .project-container .source {
+        color: var(--red1);
+    }
+
+    .project-container .desc {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-header {
+        margin-bottom: 2rem;
+    }
+
+    .project {
+        background-color: var(--bg-light);
+        padding: 1rem;
+        border-radius: 1rem;
+        outline: 2px var(--grey) solid;
+    }
+</style>
