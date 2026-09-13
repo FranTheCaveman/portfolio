@@ -1,5 +1,6 @@
 ---
 import { themes } from '../data/themes';
+import '@fontsource-variable/geist-mono/wght.css';
 import Navbar from '../components/Navbar.astro'
 const DEFAULT_THEME_NAME = 'kanagawa-wave';
 ---
@@ -94,23 +95,8 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 	:root {
 		background-color: #16161d;
 		color: var(--fg-main);
-
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		font-family: 'Geist Mono Variable', monospace;
 		line-height: 1;
-	}
-
-	@font-face {
-			font-family: 'VeraMono-Bold';
-			src: url('../public/fonts/Bitstream-Vera-Sans-Mono/VeraMono-Bold.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-	}
-
-	@font-face {
-			font-family: 'VeraMono';
-			src: url('../public/fonts/Bitstream-Vera-Sans-Mono/VeraMono.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
 	}
 
 	p, h1, h2, h3, ul, li {
@@ -131,8 +117,6 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 		margin: 0 auto;
 		border-radius: 2rem;
 		overflow: hidden;
-
-		font-family: 'VeraMono-Bold';
 
 		transition: outline 0.2s ease-out;
 		outline: 2px rgba(158, 154, 236, 0.1) solid;
