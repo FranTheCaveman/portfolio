@@ -84,6 +84,10 @@
 		gap: 0;
 	}
 
+	.container {
+		box-sizing: border-box;
+	}
+
 	#colour-scheme-container > div {
 		width: 1.5rem;
 		height: 1.5rem;
@@ -98,6 +102,7 @@
 
 	.button-container {
 		display: flex;
+		flex-wrap: wrap;
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
@@ -148,11 +153,12 @@
 	}
 	.hero-text {
 		white-space: pre;
+		text-wrap: wrap;
 	}
 
 	.ascii-face {
 		letter-spacing: -4px;
-		color: #cdc9af;
+		color: var(--fg-main);
 		font-weight: 900;
 		font-size: large;
 		color: var(--purple1)
@@ -173,4 +179,35 @@
 		justify-content: center;
 		align-items: center;
 	}
+
+	@media (max-width: 1250px) {
+        .ascii-face {
+			font-size: clamp(.5rem, 1vw, 1rem);
+			letter-spacing: clamp(-2.5px, 1vw, -5px);
+			/* line-height: clamp(.5rem, 1.1vw, 1rem); */
+		}
+
+		.hero-content {
+			flex-direction: column;
+		}
+
+		.hero-text {
+			font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+			/* clamp(min, rec, max) */
+		}
+
+		.button-container > a {
+			background-color: var(--green1);
+			color: var(--bg-light);
+		}
+
+		.button-container > a .homesvg {
+			fill: var(--bg-light); 
+		}
+
+		#colour-scheme-container {
+			grid-template-columns: repeat(8,clamp(1rem, 2vw, 1.5rem));
+			grid-template-rows: repeat(2,clamp(1rem, 2vw, 1.5rem));
+		}
+    }
 </style>

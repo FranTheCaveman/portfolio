@@ -112,4 +112,15 @@ const pathname = new URL(Astro.url).pathname;
 	.tab-container > a:hover:nth-child(6) {
 		background-color: var(--teal1);
 	}
+
+	@media (max-width: 600px) {
+        .tab-container::after { display: none; };
+		.tab-container::before { display: none; };
+		.tab-container {
+			width: 100vw;
+			border-radius: 0;
+		}
+    }
+
+
 </style>

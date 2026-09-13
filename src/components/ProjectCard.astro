@@ -1,0 +1,92 @@
+---
+// src/components/ProjectCard.astro
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, year, description, sources, tags } = project.data;
+
+---
+
+<article class="project">
+    <p class="date">{year}</p>
+    <h1>{title}</h1>
+    <p class="desc">{description}</p>
+
+    <div class="sources">
+      {sources && sources.length > 0 && (
+        <div class="sources">
+            {sources.map((source) => (
+                <a class="source" target='_blank' rel="noopener noreferrer" href={source.url}>{source.label}</a>
+            ))}
+        </div>
+      )}
+    </div>
+
+    {tags && tags.length > 0 && (
+      <div class="tags">
+        {tags.map((tag) => (
+          <p>{tag}</p>
+        ))}
+      </div>
+    )}
+</article>
+
+<style>
+    .project {
+        background-color: var(--bg-light);
+        padding: 1rem;
+        border-radius: 1rem;
+        outline: 2px var(--grey) solid;
+
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .date {
+        color: var(--yellow1);
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        color: var(--red1);
+        overflow-wrap: anywhere;
+    }
+
+    .source {
+        color: var(--red1);
+        overflow-wrap: anywhere;
+    }
+
+    .desc {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .sources {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: fit-content;
+        gap: 0.3rem;
+        color: var(--bg-light);
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .tags > p {
+        background-color: var(--green1);
+        border-radius: 5rem;
+        padding: 5px 10px 5px 10px;
+    }
+</style>

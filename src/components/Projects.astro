@@ -1,157 +1,72 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const webDevProjects = projects.filter((project) => project.data.type === "Web development");
+const hobbyProjects = projects.filter((project) => project.data.type !== "Web development");
+---
+
 <main>
     <div class="container">
-        <div class="project-header">
-            <h1>Web Development</h1>
-        </div>
-        <div class="project-container">
-            <div class="project">
-                <p class="date">2024</p>
-                <h1>Foodie Buddy</h1>
-                <p class="desc">A mobile app that lets you search for nearby food places with the help of an AI chatbot.</p>
-                <div class="sources">
-                    <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/yashsavani19/FoodieBuddy">source</a>
-                </div>
-                <div class="tags">
-                    <p>University</p>
-                    <p>React Native</p>
-                    <p>Javascript/Typescript</p>
-                </div>
-            </div>
-            <div class="project">
-                <p class="date">2025</p>
-                <h1>AUT Research & Development Issue Management System</h1>
-                <p class="desc">A ticket-based Issue Management System web app to identify/organise/resolve issues that come up in projects in the R&D paper for Bachelor of Computer and Information Sciences.</p>
-                <div class="sources">
-                    <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/MonicaLuongNZ/issue-management-frontend">frontend</a> 
-                    <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/MonicaLuongNZ/issue-management-backend">backend</a>
-                </div>
-                <div class="tags">
-                    <p>University</p>
-                    <p>Next.js</p>
-                    <p>Nest.js</p>
-                    <p>Javascript/Typescript</p>
-                </div>
-            </div>
-            <div class="project">
-                <p class="date">2026</p>
-                <h1>Portfolio Website</h1>
-                <p class="desc">Personal portfolio website built with Astro. You're in it right now!</p>
-                <div class="sources">
-                    <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/FranTheCaveman/portfolio">source</a> 
-                </div>
-                <div class="tags">
-                    <p>Personal</p>
-                    <p>Javascript/Typescript</p>
-                    <p>Astro</p>
-                </div>
+        <div>
+            <h1 class="project-header">Web Development</h1>
+            <div class="project-container">
+                {webDevProjects.map((project) => (
+                    <ProjectCard project={project} />
+                ))}
             </div>
         </div>
-
-        <div class="project-header">
-            <h1>Hobby</h1>
-        </div>
-            
-        <div class="project-container">
-            <div class="project">
-                <p class="date">2025 - Ongoing</p>
-                <h1>Home Server</h1>
-                <p class="desc">A home server setup for personal use.</p>
-                <div class="sources">
-                </div>
-                <div class="tags">
-                    <p>Personal</p>
-                    <p>Networking</p>
-                    <p>Linux</p>
-                    <p>Docker</p>
-                </div>
-            </div>
-            <div class="project">
-                <p class="date">2026</p>
-                <h1>Shenzhen Solitaire Dupe in Pico-8</h1>
-                <p class="desc">A recreation of the Shenzhen Solitaire game by Zachtronics in Pico-8.</p>
-                <div class="sources">
-                    <a class="source" target='_blank' rel="noopener noreferrer" href="https://github.com/FranTheCaveman/pico-8-shenzhen-solitaire">source</a> 
-                </div>
-                <div class="tags">
-                    <p>Personal</p>
-                    <p>Pico-8</p>
-                    <p>Game Development</p>
-                    <p>Lua</p>
-                </div>
+        <div>
+            <h1 class="project-header">Hobby</h1>
+            <div class="project-container">
+                {hobbyProjects.map((project) => (
+                    <ProjectCard project={project} />
+                ))}
             </div>
         </div>
     </div>
 </main>
  
 <style>
-    main {
-        margin: 30px;
+    .tags ul {
+        list-style: none;
+
     }
 
     .container {
-        overflow-y: auto;
+        height: fit-content;
+        align-items: start;
     }
-
-    .sources {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-    }
-
-    .tags {
-        display: flex;
-        flex-direction: row;
-        width: fit-content;
-        gap: 0.3rem;
-        color: var(--bg-light);
-        font-size: 0.9rem;
-        margin-top: 1rem;
-    }
-
-    .tags > p {
-        background-color: var(--green1);
-        border-radius: 5rem;
-        padding: 5px 10px 5px 10px;
+    
+    .container > div {
+        padding: 2rem;
     }
 
     .project-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
-    }
 
-    .project-container .date {
-        color: var(--yellow1);
-    }
-
-    .project-container h1 {
-        font-size: 1.2rem;
-        color: var(--red1);
-    }
-
-    .project-container .source {
-        color: var(--red1);
-    }
-
-    .project-container .desc {
         margin-top: 1rem;
-        margin-bottom: 1rem;
+
+        width: 100%;
+        max-width: 100%;
     }
 
     .project-header {
-        margin-bottom: 1rem;
-        margin-top: 2rem;
-    }
-
-    .project-header h1 {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         color: var(--red1);
     }
+    @media (max-width: 1080px) {
+        .project-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
 
-    .project {
-        background-color: var(--bg-light);
-        padding: 1rem;
-        border-radius: 1rem;
-        outline: 2px var(--grey) solid;
+    @media (max-width: 700px) {
+        .project-container {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
