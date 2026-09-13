@@ -50,9 +50,7 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 		<Navbar />
 	</header>
 	<body>
-		<div class="container">
-			<slot />
-		</div>
+		<slot />
 	</body>
 </html>
 
@@ -66,20 +64,6 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 		scroll-behavior: smooth;
 		background-color: var(--bg-dark);
 	}
-
-	/* body:before {
-		content: "";
-		position: absolute;
-		top: 0; left: 0; right: 0; bottom: 0;
-		
-		background-image: url("../assets/bg.svg");
-		background-size: cover;
-
-		filter: blur(5rem) opacity(60%);
-
-		z-index: -1; 
-	} */
-
 
 	header {
 		display: flex;
@@ -111,8 +95,8 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 		justify-content: center;
 		align-items: center;
 
-		width: 95%;
-		height: 90%;
+		width: 95vw;
+		height: 90vh;
 
 		margin: 0 auto;
 		border-radius: 2rem;
