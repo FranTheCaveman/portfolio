@@ -3,13 +3,16 @@ import { themes } from '../data/themes';
 import '@fontsource-variable/geist-mono/wght.css';
 import Navbar from '../components/Navbar.astro'
 const DEFAULT_THEME_NAME = 'kanagawa-wave';
+
+import { ClientRouter } from "astro:transitions";
+
 ---
 
 <!doctype html>
 <html lang="en">
 	<!-- Set default theme -->
 	<script is:inline define:vars={{ themes, DEFAULT_THEME_NAME }}>
-		document.addEventListener('DOMContentLoaded', function () {
+		function initPage() {
 			var savedThemeName = localStorage.getItem('user-theme') || DEFAULT_THEME_NAME;
 			var activeTheme = themes.find(t => t.name === savedThemeName) || themes[0];
 			var root = document.documentElement;
@@ -35,7 +38,10 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 			root.setAttribute('data-theme', activeTheme.name);
 			root.setAttribute('data-theme-type', activeTheme.type);
 			if (container) container.appendChild(fragment);
-		});
+		}
+
+		document.addEventListener('DOMContentLoaded', initPage);
+		document.addEventListener('astro:page-load', initPage);
 	</script>
 
 	<head>
@@ -44,6 +50,7 @@ const DEFAULT_THEME_NAME = 'kanagawa-wave';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		<ClientRouter />
 		<title>Francisca</title>
 	</head>
 	<header>
