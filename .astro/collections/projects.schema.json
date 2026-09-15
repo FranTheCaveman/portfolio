@@ -38,6 +38,39 @@
     "type": {
       "type": "string"
     },
+    "slug": {
+      "type": "string"
+    },
+    "videos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "src",
+          "alt"
+        ]
+      }
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "$schema": {
       "type": "string"
     }
@@ -45,6 +78,7 @@
   "required": [
     "title",
     "year",
-    "description"
+    "description",
+    "slug"
   ]
 }

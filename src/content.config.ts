@@ -17,6 +17,15 @@ const projects = defineCollection({
     ).optional(),
     tags: z.array(z.string()).optional(), 
     type: z.string().optional(),
+    slug: z.string(),
+    videos: z.array(z.string()).optional(),
+    images: z.array(
+      z.object({
+        src: z.string(),
+        alt: z.string(),
+      })
+    ).optional(),
+    slides: z.array(z.string()).optional(),
   }),
 });
 

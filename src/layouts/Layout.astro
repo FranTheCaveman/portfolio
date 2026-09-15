@@ -72,6 +72,10 @@ import { ClientRouter } from "astro:transitions";
 		background-color: var(--bg-dark);
 	}
 
+	main {
+		padding: 4rem 0;
+	}
+
 	header {
 		display: flex;
 		align-items: center;
@@ -93,6 +97,14 @@ import { ClientRouter } from "astro:transitions";
 	p, h1, h2, h3, ul, li {
 		margin-top: 0.5em;
 		margin-bottom: 0;
+	}
+
+	p, a, li {
+		font-size: clamp(0.8rem, 1.5vw, 1rem);
+	}
+
+	h2 {
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
 	}
 
 	.container {

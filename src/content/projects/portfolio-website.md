@@ -7,5 +7,6 @@ sources:
       url: "https://github.com/FranTheCaveman/portfolio"
 tags: ["Personal", "Astro", "Typescript"]
 type: "Web development"
+slug: "portfolio-website"
 ---
 

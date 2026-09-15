@@ -7,5 +7,6 @@ sources:
       url: "https://github.com/FranTheCaveman/pico-8-shenzhen-solitaire"
 tags: ["Personal", "Lua", "Game Development", "Pico-8"]
 type: "Game"
+slug: shenzhen-solitaire-dupe
 ---
 
