@@ -1,5 +1,6 @@
 <main>
     <div class="container">
+        <a class="instructions-button" href="#instructions">Help</a>
         <iframe 
             src={`${import.meta.env.BASE_URL}solitaire/mygame.html`}
             allow="gamepad"
@@ -7,20 +8,104 @@
             scrolling="no">
         </iframe>
     </div>
+    <div id="instructions" class="container instructions-container">
+        <h2>Help! How do I play?</h2>
+        <div class="instructions">
+            <div>
+                <img loading="lazy" src={`${import.meta.env.BASE_URL}solitaire/images/SolitaireTutorial-1.png`} alt="What each suit and dragon looks like">
+                <p>To win, stack the three suits from 1 to 9 in the top right corner of the table, and stack four of each of the three dragons in the free cell slots</p>
+            </div>
+            <div>
+                <img loading="lazy" src={`${import.meta.env.BASE_URL}solitaire/images/SolitaireTutorial-2.png`} alt="What stacked cards look like in the center of the table">
+                <p>Cards can be stacked and moved in the center of the table, but only if they are of alternating suits and decreasing values.</p>
+            </div>
+            <div>
+                <img loading="lazy" src={`${import.meta.env.BASE_URL}solitaire/images/SolitaireTutorial-3.png`} alt="What the free cells look like with dragon and suit cards in it">
+                <p>The free cells in the top-left corner of the table can store one card of any type.</p>
+            </div>
+            <div>
+                <img loading="lazy" src={`${import.meta.env.BASE_URL}solitaire/images/SolitaireTutorial-4.png`} alt="What happens when you press the corresponding button to move a set of dragon cards to a free cell">
+                <p>When all four dragons of a single type are exposed, they can all be permanently moved to an open free cell by pushing the corresponding button.</p>
+            </div>
+        </div>
+    </div>
 </main>
 
 <style>
+    .instructions-button {
+        background-color: var(--yellow1);
+        border: none;
+        border-radius: 2rem;
+        text-align: center;
+        width: fit-content;
+        align-self: flex-start;
+        margin: 1rem;
+        padding: 0.25rem 0.5rem;
+        text-decoration: none;
+        color: var(--bg-light);
+        font-weight: 700;
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+
+        display: flex;
+        align-items: center;
+        justify-self: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2 {
+        color: var(--red2);
+    }
+
+    .container > div:first-child {
+        flex: 1;
+        min-width: 300px; 
+    }
+
+    .instructions-container {
+        background-color: #272737;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        height: fit-content;
+        padding: 3rem;
+
+        box-sizing: border-box;
+    }
+
+    .instructions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .instructions > div {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        padding: 2rem;
+        gap: 1rem;
+    }
+
+    .instructions img {
+        height: clamp(8cqw, 12cqw, 25cqw);;
+    }
+
+    .container {
+        margin-bottom: 4rem; 
+    }
+    
     main {
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-        top: 0;
-        position: relative;
+        padding-bottom: 1rem;
+        font-size: clamp(0.5rem, 1.5vw, 1.5rem);
     }
 
     iframe {
         width: 100%;
-        height: 90%;
+        height: 100%;
         border: none;
         overflow: hidden;
     }
@@ -30,8 +115,25 @@
         padding: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden; /* Stops the browser from scrolling */
-        position: fixed;  /* Anchors the workspace on mobile devices */
-        touch-action: none; /* Prevents default zoom/scroll actions on touch */
+    }
+
+    @media (max-width: 800px) {
+        main {
+            font-size: clamp(0.6rem, 2vw, 1rem);
+        }
+
+        .instructions {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .instructions-container {
+            padding: 1rem;
+        }
+
+        .instructions img {
+            width: 25cqw;
+            height: auto;
+        }
     }
 </style>
